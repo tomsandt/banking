@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Tom's Login-System</title>
+	<link rel="stylesheet" href="src/main/resources/static/stylesheet.css">
+	<style>
+	body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	}
+	</style>
+</head>
+
+<body>
+
+	<div>
+	<form th:action="@{/}" method="post" th:object="${userDTO}">
+		<h1>Sign in</h1><br>
+		<div th:if="${error}" class="error" th:text="${error}"></div>
+		<div th:if="${errorUserDoesNotExist}" class="error" th:text="${errorUserDoesNotExist}"></div>
+		<div th:if="${errorFalsePassword}" class="error" th:text="${errorFalsePassword}"></div>
+		<input type="text" th:field="*{username}" placeholder="Username"><br><br>
+		<input type="password" th:field="*{password}" placeholder="Password"><br><br>
+		<button type="submit">Login</button>
+		<button type="button" onclick="location.href='register'">Register</button>
+	</form>
+	</div>
+
+</body>
+</html> 

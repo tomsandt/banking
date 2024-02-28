@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer - Tom-Bank</title>
+  <style>
+    .form-container {
+      background-color: white;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .form-container h1 {
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input[type="text"],
+    form input[type="number"] {
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #45a049;
+    }
+    form button[type="button"] {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    form button[type="button"]:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h1>Transfer</h1>
+  <form th:action="@{/transfer}" th:object="${transferDTO}" action="/submit-transfer" method="post">
+    <div th:if="${errorTargetUserDoesNotExist}" class="error" th:text="${errorTargetUserDoesNotExist}"></div>
+    <div th:if="${errorTargetIBANDoNotMatch}" class="error" th:text="${errorTargetIBANDoNotMatch}"></div>
+    <div th:if="${errorAmountIsNegative}" class="error" th:text="${errorAmountIsNegative}"></div>
+    <div th:if="${errorAccountBalanceTooLow}" class="error" th:text="${errorAccountBalanceTooLow}"></div>
+    <label for="recipient-name">Recipient:</label>
+    <input type="text" id="recipient-name" th:field="*{targetUser}" name="recipient-name" required>
+
+    <label for="recipient-iban">IBAN:</label>
+    <input type="text" id="recipient-iban" th:field="*{targetIBAN}" name="recipient-iban" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" th:field="*{transferAmount}" name="amount" required>
+
+    <label for="purpose">Purpose:</label>
+    <input type="text" id="purpose" th:field="*{purpose}" name="purpose">
+
+    <button type="submit">Complete Transfer</button>
+
+    <button type="button" onclick="location.href='landingPage';">Cancel</button>
+  </form>
+</div>
+
+</body>
+</html>
