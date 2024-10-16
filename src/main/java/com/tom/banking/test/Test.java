@@ -9,5 +9,5 @@ public class Test {
 
     public int test9;
 
-    public String main;
+    public String main2;
 }
