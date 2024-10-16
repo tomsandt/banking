@@ -8,4 +8,6 @@ public class Test {
     public int test7;
 
     public int test9;
+
+    public String main;
 }
