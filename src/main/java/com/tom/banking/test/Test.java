@@ -10,4 +10,6 @@ public class Test {
     public int test9;
 
     public String main2;
+
+    public String test50;
 }
