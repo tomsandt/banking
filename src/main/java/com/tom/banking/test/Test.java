@@ -6,4 +6,6 @@ public class Test {
     public String test2;
 
     public int test7;
+
+    public int test8;
 }
