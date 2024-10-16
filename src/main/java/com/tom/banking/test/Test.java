@@ -11,5 +11,5 @@ public class Test {
 
     public String main2;
 
-    public String test50;
+    public String test49;
 }
