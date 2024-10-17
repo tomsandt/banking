@@ -10,5 +10,5 @@ public class Script {
     public String dfdfff;
     public String gggegergger;
 
-    public int mache;
+    public int mahe;
 }
