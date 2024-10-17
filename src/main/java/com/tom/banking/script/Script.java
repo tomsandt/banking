@@ -6,4 +6,5 @@ public class Script {
     public String username;
     public String password;
     public String test;
+    public int testttt;
 }
