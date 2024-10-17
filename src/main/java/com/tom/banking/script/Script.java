@@ -9,4 +9,6 @@ public class Script {
     public int testttt;
     public String dfdfff;
     public String gggegergger;
+
+    public int macher;
 }
