@@ -5,4 +5,5 @@ public class Script {
     public String hash;
     public String username;
     public String password;
+    public String test;
 }
