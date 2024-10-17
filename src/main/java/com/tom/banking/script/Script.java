@@ -8,4 +8,5 @@ public class Script {
     public String test;
     public int testttt;
     public String dfdfff;
+    public String ggreggeregrgerergger;
 }
